@@ -6,15 +6,28 @@
         <title>API Playground - Jason Dean</title>
         <!--Bootstrap stuff-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+            integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <!--CSS sheet link-->
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <div id="app">
-                <button type="submit" class="btn btn-primary">Search</button>              
+                <button class="btn btn-primary" :disabled="loading" @click="loadDogs">
+                    <i class="fa fa-spinner fa-spin" v-if="loading"></i>
+                    Dogs</button>
+                    <ul class="list-group" v-if="showing == 'dogs'">
+                    <li class="list-group-item" v-for="dog in dogs" :key="dogs.id" @click="selectDog(dog)"></li>
+                        {{ dog.dogs }} ({{ dog. }})
+                </ul>  
         </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/vue@2.5.3/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue-resource@1.3.4/dist/vue-resource.min.js"></script>
+        <script src="javas.js"></script>
     </body>
 </html>
