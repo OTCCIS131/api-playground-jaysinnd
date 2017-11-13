@@ -13,14 +13,15 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <div class="container-fluid">
         <div id="app">
-                <button class="btn btn-primary" :disabled="loading" @click="loadDogs">
-                    <i class="fa fa-spinner fa-spin" v-if="loading"></i>
-                    Dogs</button>
-                    <ul class="list-group" v-if="showing == 'dogs'">
-                    <li class="list-group-item" v-for="dog in dogs" :key="dogs.id" @click="selectDog(dog)"></li>
-                        {{ dog.dogs }} ({{ dog. }})
+                <button class="btn btn-primary" @click="loadDogs">Load Dogs</button>
+                    <ul class="list-group">
+                    <li class="list-group-item" v-for="dogs in dogs">
+                        {{dogs}}
+                    </li>
                 </ul>  
+        </div>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
